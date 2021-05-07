@@ -1,10 +1,11 @@
 # coding=utf-8
 import discord
 import asyncio
-from discord.ext.commands import Bot
 import os
 import time
 import datetime
+from discord.ext.commands import Bot
+from decouple import config
 
 from secrets.discord_secrets import *
 
@@ -14,7 +15,7 @@ command_prefix = '?'
 
 global client
 client = Bot(command_prefix=command_prefix, pm_help=True, case_insensitive=True)
-client.login(BOT_TOKEN)
+client.login(config(TOKEN))
 
 while client:
     from functions.game_creator import *

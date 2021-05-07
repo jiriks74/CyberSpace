@@ -5,13 +5,14 @@
 
 ==============================================================
 """
+from decouple import config
 
-from secrets.discord_secrets import *		# Import secret info for discord and firebase login
+#from secrets.discord_secrets import *		# Import secret info for discord and firebase login
 from functions.discord_connect import *		# Import functions to connect discord
 
 
 def startBot():
-	client.run(BOT_TOKEN)
+	client.run(config(TOKEN))
 
 if __name__ == '__main__':
 	startBot()
