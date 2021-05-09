@@ -10,7 +10,7 @@ class configFile():
     def getValue(section, key):
         return config.get(section, key)
 
-    def save(section, key, value):
+    def saveValue(section, key, value):
         if section in config.sections():
             config.set(section, key, value)
             with open(CONFIG_FILE, "w") as file:

@@ -13,7 +13,10 @@ class confParsTemp():
             secrets = 'secrets'
             self.config.add_section(secrets)
             self.config.set(secrets, 'botToken', 'yourBotToken')
-            self.config.set(secrets, 'databaseToken', 'yourDatabaseToken')
+            self.config.set(secrets, "apiKey", "apiKey")
+            self config.set(secrets, "authDomain", "projectId.firebaseapp.com")
+            self config.set(secrets, "databaseURL", "databaseURL")
+            self config.set(secrets, "storageBucket", "projectId.appspot.com")
 
             bot = 'bot'
             self.config.add_section(bot)
