@@ -1,17 +1,14 @@
-# coding=utf-8
-"""
-  Discord RPG survival coop game by CyberCity dev team (https://discord.gg/NdrhvcF)
-  version: 0.1.0
+import discord
+from discord.ext import commands
 
-==============================================================
-"""
+from templates.confParsTemp import confParsTemp
+from dal.database import database
+class client():
+    def setup():
+        confParsTemp().createIfNone()
+        database.test_connection()
 
-from secrets.discord_secrets import *		# Import secret info for discord and firebase login
-from functions.discord_connect import *		# Import functions to connect discord
 
 
-def startBot():
-	client.run(BOT_TOKEN)
-
-if __name__ == '__main__':
-	startBot()
+if __name__ == "__main__":
+    client.setup()

@@ -1,3 +1,5 @@
 .env
+*.ini
 severska/
+old/
 **__pycache__
