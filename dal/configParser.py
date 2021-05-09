@@ -7,13 +7,14 @@ class configFile():
     config = ConfigParser()
     config.read(CONFIG_FILE)
 
-    def getValue(section, key):
+    def getValue(self, section, key):
         return config.get(section, key)
 
-    def saveValue(section, key, value):
+    def saveValue(self, section, key, value):
         if section in config.sections():
             config.set(section, key, value)
             with open(CONFIG_FILE, "w") as file:
+                #config.write(file)
                 config.write(file)
         
         else:

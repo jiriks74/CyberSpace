@@ -1,13 +1,13 @@
 from firebase import Firebase
 
-from dal.configParser import ConfigParser
+from dal.configParser import configFile
 
 class database:
     config = {
-        "apiKey": ConfigParser().getValue('secrets', "apiKey")
-        "authDomain": ConfigParser().getValue('secrets', "authDomain")
-        "databaseURL": ConfigParser().getValue('secrets', 'databaseURL'),
-        "storageBucket": ConfigParser().getValue('secrets', "storageBucket")
+        "apiKey": configFile().getValue('secrets', "apiKey"),
+        "authDomain": configFile().getValue('secrets', "authDomain"),
+        "databaseURL": configFile().getValue('secrets', 'databaseURL'),
+        "storageBucket": configFile().getValue('secrets', "storageBucket")
         }
     firebase = Firebase(config)
 

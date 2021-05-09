@@ -7,16 +7,16 @@ class confParsTemp():
     config = ConfigParser()
     def createIfNone(self):
         if path.exists(CONFIG_FILE):
-            pass
+            return True
 
         else:
-            secrets = 'secrets'
+            secrets = "secrets"
             self.config.add_section(secrets)
             self.config.set(secrets, 'botToken', 'yourBotToken')
-            self.config.set(secrets, "apiKey", "apiKey")
-            self config.set(secrets, "authDomain", "projectId.firebaseapp.com")
-            self config.set(secrets, "databaseURL", "databaseURL")
-            self config.set(secrets, "storageBucket", "projectId.appspot.com")
+            self.config.set(secrets, 'apiKey', 'apiKey')
+            self.config.set(secrets, 'authDomain', 'projectId.firebaseapp.com')
+            self.config.set(secrets, 'databaseURL', 'databaseURL')
+            self.config.set(secrets, 'storageBucket', 'projectId.appspot.com')
 
             bot = 'bot'
             self.config.add_section(bot)
@@ -44,3 +44,5 @@ class confParsTemp():
 
             with open(CONFIG_FILE, "w") as file:
                 self.config.write(file)
+            
+            return True
