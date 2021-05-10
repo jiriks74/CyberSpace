@@ -8,8 +8,8 @@ class database:
         "authDomain": configFile().getValue('secrets', "authDomain"),
         "databaseURL": configFile().getValue('secrets', 'databaseURL'),
         "storageBucket": configFile().getValue('secrets', "storageBucket")
-        }
-    firebase = Firebase(config)
+        } # Init the configuration with data from settings file
+    firebase = Firebase(config) # Init firebase with the config
 
     def test_connection(self):
-        pass
+        pass # TODO connection test

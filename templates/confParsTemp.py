@@ -4,12 +4,21 @@ from configparser import ConfigParser
 from dal.configParser import CONFIG_FILE
 
 class confParsTemp():
+    """
+    Class for configParser template config.ini
+    """
+
     config = ConfigParser()
     def createIfNone(self):
-        if path.exists(CONFIG_FILE):
-            return True
+        """
+        Creates CONFIG_FILE (default config.ini) if none exists
 
-        else:
+        Returns False, if file exists, returns True if template was created
+        """
+        if path.exists(CONFIG_FILE): # If file exists, just return False
+            return False
+
+        else: # If the file doesn't exist, create template datastructure with default values and return True
             secrets = "secrets"
             self.config.add_section(secrets)
             self.config.set(secrets, 'botToken', 'yourBotToken')
