@@ -1,13 +1,13 @@
-from os import path
+from os import path, mkdir
 from configparser import ConfigParser
 
-from dal.configParser import CONFIG_FILE
-
+from dal.configFile import configFile
 class confParsTemp():
     """
     Class for configParser template config.ini
     """
-
+    DATA_FOLDER = configFile().DATA_FOLDER
+    CONFIG_FILE_PATH = configFile().CONFIG_FILE_PATH
     config = ConfigParser()
     def createIfNone(self):
         """
@@ -15,17 +15,14 @@ class confParsTemp():
 
         Returns False, if file exists, returns True if template was created
         """
-        if path.exists(CONFIG_FILE): # If file exists, just return False
+        if path.exists(self.CONFIG_FILE_PATH): # If file exists, just return False
             return False
 
         else: # If the file doesn't exist, create template datastructure with default values and return True
             secrets = "secrets"
             self.config.add_section(secrets)
             self.config.set(secrets, 'botToken', 'yourBotToken')
-            self.config.set(secrets, 'apiKey', 'apiKey')
-            self.config.set(secrets, 'authDomain', 'projectId.firebaseapp.com')
-            self.config.set(secrets, 'databaseURL', 'databaseURL')
-            self.config.set(secrets, 'storageBucket', 'projectId.appspot.com')
+            self.config.set(secrets, 'databaseURL', 'yourDatabaseURL')
 
             bot = 'bot'
             self.config.add_section(bot)
@@ -51,7 +48,10 @@ class confParsTemp():
             If your team is ready, captain can start game with command `{config.get(bot,'command_prefix')}start`
             ''')
 
-            with open(CONFIG_FILE, "w") as file:
+            if not path.exists(self.DATA_FOLDER):
+                mkdir(self.DATA_FOLDER)
+
+            with open(self.CONFIG_FILE_PATH, "w") as file:
                 self.config.write(file)
             
             return True

@@ -1,5 +1,9 @@
-.env
-*.ini
+# VSCode folder
+.vscode/
+
+# Data folder of the bot 
+data/
 severska/
 old/
 **__pycache__
+FireBase testing/
