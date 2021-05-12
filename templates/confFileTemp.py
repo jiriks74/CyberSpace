@@ -2,7 +2,7 @@ from os import path, mkdir
 from configparser import ConfigParser
 
 from dal.configFile import configFile
-class confParsTemp():
+class confFileTemp():
     """
     Class for configParser template data/config.ini
     """

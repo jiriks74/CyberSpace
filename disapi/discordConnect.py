@@ -14,15 +14,13 @@ class client():
 
     @bot.event
     async def on_ready():
-        start = timeStr()
         print('\033c')
         print(configFile().getValue('bot', 'bot_name')+' - version: 0.1.0 Created by CyberCity dev team https://discord.gg/NdrhvcF')
-        print(client.bot.user.name+'( '+str(client.bot.user.id)+' )'' is successfuly connected (at '+start.getTime()+')')
+        print(client.bot.user.name+' ('+str(client.bot.user.id)+')'' is successfuly connected (at '+timeStr().getTime()+')')
         print('-------------------------------------------------------------------------------')
 
 
 class bot_commands():
-    bot = client
     @client.bot.command(pass_context=True)
     async def ping(message):
         await message.channel.send("pong")
