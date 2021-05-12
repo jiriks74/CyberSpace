@@ -3,7 +3,9 @@
 
 # Data folder of the bot 
 data/
-severska/
-old/
+
+# Python cache folders
 **__pycache__
-FireBase testing/
+
+# Junk jiriks74 uses - old bot code, testing code, etc
+junk/
