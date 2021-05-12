@@ -3,17 +3,19 @@ from configparser import ConfigParser
 
 class configFile():
     """
-    Class for interaction with .ini files
+    Class for interaction with .ini files. 
+
+    To change interact with file other than data/config.ini set DATA_FOLDER and CONFIG_FILE variables
     """
     DATA_FOLDER = 'data'
     CONFIG_FILE = 'config.ini'
     CONFIG_FILE_PATH = path.join(getcwd(), DATA_FOLDER, CONFIG_FILE)
     config = ConfigParser() # Create config parser so the program can interact with ini files
-    config.read(CONFIG_FILE_PATH) # Load data from CONFIG_FILE (default config.ini)
+    config.read(CONFIG_FILE_PATH) # Load data from CONFIG_FILE (default data/config.ini)
 
     def getValue(self, section, key):
         """
-        Returns a value set in CONFIG_FILE (default config.ini)
+        Returns a value set in CONFIG_FILE (default data/config.ini)
 
         section - section name in config.ini\n
         key - key name in config.ini
@@ -22,7 +24,7 @@ class configFile():
 
     def saveValue(self, section, key, value):
         """
-        Saves value to CONFIG_FILE (default config.ini)
+        Saves value to CONFIG_FILE (default data/config.ini)
         
         section - section name where the key will be\n
         key - key name\n

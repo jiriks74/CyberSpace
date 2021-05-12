@@ -4,7 +4,7 @@ from configparser import ConfigParser
 from dal.configFile import configFile
 class confParsTemp():
     """
-    Class for configParser template config.ini
+    Class for configParser template data/config.ini
     """
     DATA_FOLDER = configFile().DATA_FOLDER
     CONFIG_FILE_PATH = configFile().CONFIG_FILE_PATH
@@ -21,12 +21,12 @@ class confParsTemp():
         else: # If the file doesn't exist, create template datastructure with default values and return True
             secrets = "secrets"
             self.config.add_section(secrets)
-            self.config.set(secrets, 'botToken', 'yourBotToken')
+            self.config.set(secrets, 'bot_token', 'yourBotToken')
             self.config.set(secrets, 'databaseURL', 'yourDatabaseURL')
 
             bot = 'bot'
             self.config.add_section(bot)
-            self.config.set(bot, 'botName', 'CyberSpace')
+            self.config.set(bot, 'bot_name', 'CyberSpace')
             self.config.set(bot, 'command_prefix', '?')
 
             game_creator = 'game_creator'
@@ -45,7 +45,7 @@ class confParsTemp():
             To start a game at least one of this class is required: Captain, Soldier
             but all class is needed to survive in dark space.
 
-            If your team is ready, captain can start game with command `{config.get(bot,'command_prefix')}start`
+            If your team is ready, captain can start game with command `start`
             ''')
 
             if not path.exists(self.DATA_FOLDER):
