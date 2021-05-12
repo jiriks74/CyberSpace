@@ -23,7 +23,7 @@ class firebase():
             self.ref = db.reference("/")     # Nastavení rootu
 
     def test(self):                                        
-        with open('data.json', 'r') as d: # Načtení dat (může být ze souboru jako teď, nebo se může složit se streamu a poslat)
+        with open('data/data.json', 'r') as d: # Načtení dat (může být ze souboru jako teď, nebo se může složit se streamu a poslat)
             data = json.load(d)
 
         self.ref.set(data)
