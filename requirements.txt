@@ -1,4 +1,10 @@
 discord.py==1.7.2
-discord==1.0.1
 firebase_admin==5.0.0
+urllib3==1.26.4
+backports.statistics==0.1.0
+Cython==0.29.23
+discord==1.0.1
+ipaddr==2.2.0
+ordereddict==1.1
 python-decouple==3.4
+wincertstore==0.2

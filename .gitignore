@@ -7,5 +7,8 @@ data/
 # Python cache folders
 **__pycache__
 
+# Python virtual enviroment
+.venv
+
 # Junk jiriks74 uses - old bot code, testing code, etc
 junk/
