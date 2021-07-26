@@ -1,4 +1,6 @@
 import os
+import time
+import datetime
 
 class console():
     """
@@ -14,3 +16,12 @@ class console():
         if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
             command = 'cls'
         os.system(command)
+
+class timeStr():
+    """
+    Returns time in format %Y-%m-%d %H:%M:%S
+    """
+    def getTime(self):
+        ts = time.time()
+        t = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+        return t
