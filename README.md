@@ -4,8 +4,9 @@ hobby project for discord server [CyberCity](https://discord.gg/NdrhvcF)
 
 
 **PROGRAMÁTOR**
-programování bota, přidávání funkcí, správa mySQL databáze
+programování bota, přidávání funkcí, správa firebase databáze
 
+        @jiriks74
         @phobi
         @MakroCZ 
         
