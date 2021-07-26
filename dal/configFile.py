@@ -11,7 +11,9 @@ class configFile():
     CONFIG_FILE = 'config.ini'
     CONFIG_FILE_PATH = path.join(getcwd(), DATA_FOLDER, CONFIG_FILE)
     config = ConfigParser() # Create config parser so the program can interact with ini files
-    config.read(CONFIG_FILE_PATH) # Load data from CONFIG_FILE (default data/config.ini)
+    
+    def __init__(self):
+        self.config.read(self.CONFIG_FILE_PATH) # Load data from CONFIG_FILE (default data/config.ini)
 
     def getValue(self, section, key):
         """
