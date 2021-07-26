@@ -1,9 +1,10 @@
 import asyncio
+import os, sys
 import discord
 from discord.ext import commands
 
 from dal.configFile import configFile
-from misc.timeStr import timeStr
+from misc.misc import timeStr, console
 #from disapi.commands import bot_commandent
 
 class client():
@@ -15,8 +16,17 @@ class client():
     bot = commands.Bot(command_prefix="?") # Initialize bot
     def __init__(self):
         print("Initializing...")
-        self.bot.run(configFile().getValue('secrets', 'bot_token')) # Start the bot and connect it to discord
 
+        try:
+            self.bot.run(configFile().getValue('secrets', 'bot_token')) # Start the bot and connect it to discord
+
+        except discord.errors.LoginFailure as e:
+            print(e)
+            print("======================================\nBot login unsuccessful.")
+            configFile().saveValue('secrets', 'bot_token', input("Probably improper token. Please insert proper token and press enter:\n"))
+            console().clear()
+            os.execl(sys.executable, os.path.abspath(__file__), *sys.argv) 
+            
     @bot.event
     async def on_ready():
         """
